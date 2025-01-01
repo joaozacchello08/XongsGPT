@@ -21,3 +21,34 @@ h1 {
 h1 span {
   font-size: 10px;
 }
+
+.inp {
+  display: flex;
+	place-content: center;
+	margin: 0;
+	overflow: hidden;
+}
+
+.question-inp {
+  appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid #77d87f;
+	background: rgba(#E91E63, .2);
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+	color: #000000;
+}
+
+.inp button {
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 390px) { /* iphone 12-12 pro */
+  textarea {
+    width: 300px;
+    font-size: 12px;
+  }
+}
