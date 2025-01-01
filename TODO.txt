@@ -1,0 +1,4 @@
+bugs/features
+
+- rafael: ao enviar pergunta, apagar anterior / solved
+

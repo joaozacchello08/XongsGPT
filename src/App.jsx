@@ -7,9 +7,7 @@ export default function App() {
   const [question, setQuestion] = useState("")
   const [answer, setAnswer] = useState("")
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
+  const handleSubmit = async () => {
     if (question !== "") {
       setAnswer("Carregando sua resposta...")
       const gen_ai = new GoogleGenerativeAI(import.meta.env.VITE_api_key)
@@ -17,6 +15,7 @@ export default function App() {
 
       const result = await model.generateContent(`${question} OBS: Escreva como se fosse um parágrafo normal, sem negritos etc.`, { maxTokens: 512 })
       setAnswer(result.response.text())
+      setQuestion("")
     } else setAnswer("Digite uma pergunta válida.")
   }
 
@@ -30,6 +29,7 @@ export default function App() {
       <div className="inp">
         <input
           type="text"
+          value={question}
           placeholder="Pergunte algo..."
           className="question-inp"
           onChange={(e) => setQuestion(e.target.value)}
