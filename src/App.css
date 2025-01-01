@@ -46,7 +46,25 @@ h1 span {
   cursor: pointer;
 }
 
-@media screen and (max-width: 390px) { /* iphone 12-12 pro */
+@media screen and (max-width: 950px) {
+  textarea {
+    width: 600px;
+    font-size: 18px;
+  }
+
+  input {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  textarea {
+    width: 400px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 420px) { /* iphone 12-12 pro */
   textarea {
     width: 300px;
     font-size: 12px;

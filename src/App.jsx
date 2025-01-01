@@ -10,13 +10,14 @@ export default function App() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    setAnswer("Carregando sua resposta...")
+    if (question !== "") {
+      setAnswer("Carregando sua resposta...")
+      const gen_ai = new GoogleGenerativeAI(import.meta.env.VITE_api_key)
+      const model = gen_ai.getGenerativeModel({ model: "gemini-1.5-flash" })
 
-    const gen_ai = new GoogleGenerativeAI(import.meta.env.VITE_api_key)
-    const model = gen_ai.getGenerativeModel({ model: "gemini-1.5-flash" })
-
-    const result = await model.generateContent(`${question} OBS: Escreva como se fosse um parágrafo normal, sem negritos etc.`, { maxTokens: 512 })
-    setAnswer(result.response.text())
+      const result = await model.generateContent(`${question} OBS: Escreva como se fosse um parágrafo normal, sem negritos etc.`, { maxTokens: 512 })
+      setAnswer(result.response.text())
+    } else setAnswer("Digite uma pergunta válida.")
   }
 
   return (
@@ -42,7 +43,7 @@ export default function App() {
         disabled
         rows={10}
         cols={55}
-        style={{ padding: 15, color: "black", fontSize: 18 }}
+        style={{ padding: 15, color: "black", fontSize: 24 }}
         value={answer ? answer : "Aqui aparecerá sua resposta..."}
       />
     </div>
