@@ -1,4 +1,4 @@
-# XongsGPT
+# [XongsGPT](https://transcendent-piroshki-aad0f1.netlify.app)
 Basically testing the [Gemini Studio](https://aistudio.google.com/) free API key.
 
 ## maybe useful (for menino haultz)
